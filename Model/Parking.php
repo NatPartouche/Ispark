@@ -86,14 +86,14 @@ public function modif_place_parking($param)
     if ($param=="up")
  { 
     
- $query = $bdd->prepare("UPDATE Zone SET zonenonreservable=zonenonreservable+1  WHERE idparking = '".$this->idparking."';");
+ $query = $bdd->prepare("UPDATE Zone SET zonereservable=zonereservable+1  WHERE idparking = '".$this->idparking."';");
  $query->execute();
 
  }
  
 else if ($param=="down")
 {
- $query = $bdd->prepare("UPDATE Zone SET zonenonreservable=zonenonreservable-1 WHERE idparking = '".$this->idparking."';");
+ $query = $bdd->prepare("UPDATE Zone SET zonereservable=zonereservable-1 WHERE idparking = '".$this->idparking."';");
  $query->execute();
     
 }

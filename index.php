@@ -10,14 +10,12 @@
         
         
         ?>
-
+        
+        <p>--------------</p>
         <h1><a href="InterfaceAdmin/admin.html"> Admin</a></h1>
-        <h1><a href="script_auto.php">script</a></h1>
         <h1>Ici vous pourez trouvez l'API Ispark</h1>
         <h2>En executant une requette HTTP sur les URLs suivants, l'application pourra récupérrer les données necessaire a sont fonctionnement<h2>
         <h3>Pour chaque requettes, une réponse XML est générée puis parsé par l'application Mobile</h3>
- 
-        
         <h1>Interface de connection entre la BDD et le module SI</h1>
 
         <p>--------------</p>
