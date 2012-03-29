@@ -34,6 +34,11 @@ $this->idUtilisateur=$_GET['idUtilisateur'];
 $this->datedebut=$_GET['datedebut'];
 $idr=NULL;
 }
+if($idr==NULL)
+{
+    
+    
+}
 else 
 {
 
@@ -41,6 +46,7 @@ else
  $bdd = new PDO(DSN, DB_USERNAME, DB_PASSWORD, $pdo_options);
  $query = $bdd->prepare("SELECT * FROM Reservation WHERE idreservation = '".$idr."';");
  $query->execute();
+ 
  $data = $query->fetch();
  
  $this->idreservation=$data['idreservation'];
@@ -55,7 +61,44 @@ else
 }
 }
 
+public function select_qrcode($param) {
+     
+ $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+ $bdd = new PDO(DSN, DB_USERNAME, DB_PASSWORD, $pdo_options);
+ $bdd1=new PDO(DSN, DB_USERNAME, DB_PASSWORD, $pdo_options);
 
+ $query = $bdd->prepare("SELECT * FROM Utilisateur WHERE  imatriculation = '".$param."';");
+ $query->execute();
+
+  if ($query->rowCount()>0)
+ {
+
+ $data = $query->fetch();
+
+  
+     
+ $this->idUtilisateur=$data['idutilisateur'];
+ $query->closeCursor();
+
+ $query1= $bdd1->prepare("SELECT * FROM Reservation WHERE idutilisateur = '".$this->idUtilisateur."' LIMIT 1;");
+ 
+ $query1->execute();
+ 
+ 
+ $data1 = $query1->fetch();
+ 
+ $this->code=$data1['code'];
+ $this->idParking=$data1['idParking'];
+
+ $query1->closeCursor();
+ 
+ return 0;
+ }
+ else
+ {
+ return 1;
+ }
+ }
 public function faire_reservation()
 {
 

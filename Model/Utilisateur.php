@@ -23,7 +23,7 @@ public $nom;
 public $prenom;
 public $mail;
 public $motdepasse;
-
+public $matriculation;
 
 
 public function __construct($idu) {
@@ -42,9 +42,25 @@ if ($idu!=NULL)
  $this->prenom=$data['prenom'];
  $this->mail=$data['mail'];
  $this->motdepasse=$data['motdepasse'];
+ $this->matriculation=$data['imatriculation'];
  $query->closeCursor();
 }
+}
 
+public function select_plaque($idu) {
+    
+ $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+ $bdd = new PDO(DSN, DB_USERNAME, DB_PASSWORD, $pdo_options);
+ $query = $bdd->prepare("SELECT * FROM Utilisateur WHERE imatriculation = '".$idu."';");
+ $query->execute();
+ $data = $query->fetch();
+ $this->nom=$data['nom'];
+ $this->prenom=$data['prenom'];
+ $query->execute();
+ $data = $query->fetch();
+ $this->matriculation=$data['imatriculation'];
+ $query->closeCursor();
+ 
 }
 
 public function authentification($m,$mdp)

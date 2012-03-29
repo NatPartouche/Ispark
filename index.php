@@ -16,7 +16,10 @@
         <h1>Ici vous pourez trouvez l'API Ispark</h1>
         <h2>En executant une requette HTTP sur les URLs suivants, l'application pourra récupérrer les données necessaire a sont fonctionnement<h2>
         <h3>Pour chaque requettes, une réponse XML est générée puis parsé par l'application Mobile</h3>
-                
+ 
+        
+        <h1>Interface de connection entre la BDD et le module SI</h1>
+
         <p>--------------</p>
         <p>Authentification de l'utilisateur</p>
         <p>Methode GET : Action / authentification / motdepasse</p>
@@ -69,7 +72,38 @@
         <a href="Action/ActionPub.php?Action=pub&idparking=2">Pub</a><br>
   
 
-
-    
+        <h1>Interface de connection entre la BDD et le module SE</h1>
+        <p>--------------</p>
+        <p>Vérifier que imatriculation est dans la BDD</p>
+        <p>verifier&imatriculation</p>
+        <p>ActionReservation.php?Action=verifier&imatriculation= </p>
+        <a href="Action/ActionReservation.php?Action=verifier&imatriculation=1200000">get from imatriculation</a><br>
+  
+        <p>--------------</p>
+        <p>Vérifier que le code de reservation est dans la BDD</p>
+        <p>verifier&qrcode</p>
+        <p>ActionReservation.php?Action=verifier&imatriculation= </p>
+        <a href="Action/ActionReservation.php?Action=verifier&qrcode=1200000">get from qrcode</a><br>
+  
+        <p>--------------</p>
+        <p>Aucune réponse</p>
+        <p>verifier&qrcode</p>
+        <p>ActionReservation.php?Action=verifier&imatriculation= </p>
+        <a href="Action/ActionReservation.php?Action=verifier&qrcode=1200000">get from qrcode</a><br>
+  
+        <p>--------------</p>
+        <p>Ajoute une place dans le parking</p>
+        <p>&&</p>
+        <p>ActionReservation.php?/Action=modification&idparking=1&modif=plus</p>
+        <a href="Action/ActionReservation.php?/Action=modification&idparking=1&modif=plus">Ajout</a><br>
+        
+        <p>--------------</p>
+        <p>Supprimer une place dans le parking</p>
+        <p>&&</p>
+        <p>/ActionReservation.php?/Action=modification&idparking=1&modif=moins= </p>
+        <a href="Action/ActionReservation.php?/Action=modification&idparking=1&modif=moins">Supprimer</a><br>
+  
+        
+        
     </body>
 </html>

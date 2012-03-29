@@ -75,7 +75,33 @@ public function __construct($idp) {
  
 //affichage
 
+public function modif_place_parking($param) 
+{
+    
+    try {
+        
+ $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+ $bdd = new PDO(DSN, DB_USERNAME, DB_PASSWORD, $pdo_options);
 
+    if ($param=="up")
+ { 
+    
+ $query = $bdd->prepare("UPDATE Zone SET zonenonreservable=zonenonreservable+1  WHERE idparking = '".$this->idparking."';");
+ $query->execute();
+
+ }
+ 
+else if ($param=="down")
+{
+ $query = $bdd->prepare("UPDATE Zone SET zonenonreservable=zonenonreservable-1 WHERE idparking = '".$this->idparking."';");
+ $query->execute();
+    
+}
+
+    } catch (PDOException $exc) {
+        echo $exc->getTraceAsString();
+    }
+}
 public function nombredeplace()
 {
 
@@ -88,12 +114,6 @@ public function nombredeplace()
  $query->closeCursor();
 }
 
-public function reserver()
-{
-
-
-
-}
 
 
  function Select_parking()
