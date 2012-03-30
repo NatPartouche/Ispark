@@ -38,14 +38,9 @@ class ReponseParking {
         
         $Reponse = $docXML->createElement('Reponse');
         $docXML->appendChild($Reponse);
-        
-         //nombre place
-        $nombreplacedisponible = $docXML->createElement('nombreplacedisponible');
-	$Reponse->appendChild($nombreplacedisponible);		
-	$nombreplacedisponibleValue = $docXML->createTextNode($this->parking->nombreplacedisponible);
-	$nombreplacedisponible->appendChild($nombreplacedisponibleValue);
-        
-        $docXML->save("../Reponsesxml/Reponse_place.xml");
+        //dparking 	zonereservable 	zonenonreservable 	nbrplacereservable 	nombreplacedisponible 	idzone
+       $Reponse->setAttribute("nombreplacedisponible", $this->parking->nombreplacedisponible);
+       $docXML->save("../Reponsesxml/Reponse_place.xml");
         
     }
      public function Reponse_i()

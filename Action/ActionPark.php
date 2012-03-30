@@ -23,7 +23,7 @@ if($_GET['Action']=="all")
 }
 
 //Action=filtre&latitude=12.200&longitude=21.33333
-if ($_GET['Action']=="filtre")
+else if ($_GET['Action']=="filtre")
 {
     if (isset ($_GET['latitude'])&& isset ($_GET['longitude']))
     {
@@ -40,7 +40,7 @@ if ($_GET['Action']=="filtre")
     }
     
 }
-if ($_GET['Action']=="limite")
+else if ($_GET['Action']=="limite")
 {
 
         $nbr=$_GET['nombre'];

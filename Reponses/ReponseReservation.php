@@ -127,6 +127,8 @@ class ReponseReservation {
         $docXML->save("../Reservations/Reponse_faire.xml");
     }
     
+    
+    
 }
 
 ?>

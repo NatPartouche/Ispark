@@ -126,8 +126,8 @@ if ($flag=='+')
 {
 
 $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-$bdd = new PDO(DSN, DB_USERNAME, DB_PASSWORD, $pdo_options);
-$query = $bdd->prepare("UPDATE Zone SET zonereservable=zonereservable+1 WHERE idparking='".$this->idParking."';");
+$bdd = new PDO(DSN, DB_USERNAME, DB_PASSWORD, $pdo_options);//zonenonreservable 	
+$query = $bdd->prepare("UPDATE Zone SET zonenonreservable=zonenonreservable+1 WHERE idparking='".$this->idParking."';");
  
  $query->execute();
  $query->closeCursor();
@@ -137,7 +137,7 @@ $query = $bdd->prepare("UPDATE Zone SET zonereservable=zonereservable+1 WHERE id
 
 $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 $bdd = new PDO(DSN, DB_USERNAME, DB_PASSWORD, $pdo_options);
-$query = $bdd->prepare("UPDATE Zone SET zonereservable=zonereservable-1 WHERE idparking='".$this->idParking."';");
+$query = $bdd->prepare("UPDATE Zone SET zonenonreservable=zonenonreservable-1 WHERE idparking='".$this->idParking."';");
  $query->execute();
  $query->closeCursor();
 }
